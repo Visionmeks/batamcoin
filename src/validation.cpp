@@ -1733,7 +1733,8 @@ static unsigned int GetBlockScriptFlags(const CBlockIndex* pindex, const Consens
     // on except for the one violating block.
     if (consensusparams.BIP16Exception.IsNull() || // no bip16 exception on this chain
         pindex->phashBlock == nullptr || // this is a new candidate block, eg from TestBlockValidity()
-        *pindex->phashBlock != consensusparams.BIP16Exception) // this block isn't the historical exception
+        *pindex->phashBlock != consensusparams.BIP16Exception || // this block isn't the historical exception
+         pindex->nHeight >= consensusparams.BIP16Height) 
     {
         flags |= SCRIPT_VERIFY_P2SH;
     }
