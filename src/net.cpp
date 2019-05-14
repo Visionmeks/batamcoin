@@ -1443,7 +1443,7 @@ static void ThreadMapPort()
             }
         }
 
-        std::string strDesc = "Bitcoin " + FormatFullVersion();
+        std::string strDesc = "Gladcoin " + FormatFullVersion();
 
         do {
 #ifndef UPNPDISCOVER_SUCCESS

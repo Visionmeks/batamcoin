@@ -1,28 +1,28 @@
 (note: this is a temporary file, to be added-to by anybody, and moved to
 release-notes at release time)
 
-Bitcoin Core version *version* is now available from:
+Gladcoin Core version *version* is now available from:
 
-  <https://bitcoincore.org/bin/bitcoin-core-*version*/>
+  <https://gladcoincore.org/bin/gladcoin-core-*version*/>
 
 This is a new major version release, including new features, various bugfixes
 and performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/bitcoin/bitcoin/issues>
+  <https://github.com/gladcoin/gladcoin/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://bitcoincore.org/en/list/announcements/join/>
+  <https://gladcoincore.org/en/list/announcements/join/>
 
 How to Upgrade
 ==============
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the
-installer (on Windows) or just copy over `/Applications/Bitcoin-Qt` (on Mac)
-or `bitcoind`/`bitcoin-qt` (on Linux).
+installer (on Windows) or just copy over `/Applications/Gladcoin-Qt` (on Mac)
+or `gladcoind`/`gladcoin-qt` (on Linux).
 
 The first time you run version 0.15.0 or newer, your chainstate database
 will be converted to a new format, which will take anywhere from a few minutes
@@ -36,16 +36,16 @@ However, as usual, old wallet versions are still supported.
 Compatibility
 ==============
 
-Bitcoin Core is supported and extensively tested on operating systems using
+Gladcoin Core is supported and extensively tested on operating systems using
 the Linux kernel, macOS 10.10+, and Windows 7 and newer. It is not recommended
-to use Bitcoin Core on unsupported systems.
+to use gladcoin Core on unsupported systems.
 
-Bitcoin Core should also work on most other Unix-like systems but is not
+Gladcoin Core should also work on most other Unix-like systems but is not
 as frequently tested on them.
 
 From 0.17.0 onwards, macOS <10.10 is no longer supported. 0.17.0 is
 built using Qt 5.9.x, which doesn't support versions of macOS older than
-10.10. Additionally, Bitcoin Core does not yet change appearance when
+10.10. Additionally, gladcoin Core does not yet change appearance when
 macOS "dark mode" is activated.
 
 In addition to previously-supported CPU platforms, this release's
@@ -75,10 +75,10 @@ Configuration option changes
   messages that ZMQ will queue in memory (the "high water mark") before
   dropping additional messages.  The default value is 1,000, the same as
   was used for previous releases.  See the [ZMQ
-  documentation](https://github.com/bitcoin/bitcoin/blob/master/doc/zmq.md#usage)
+  documentation](https://github.com/gladcoin/gladcoin/blob/master/doc/zmq.md#usage)
   for details.
 
-- The `enablebip61` option (introduced in Bitcoin Core 0.17.0) is
+- The `enablebip61` option (introduced in gladcoin Core 0.17.0) is
   used to toggle sending of BIP 61 reject messages. Reject messages have no use
   case on the P2P network and are only logged for debugging by most network
   nodes. The option will now by default be off for improved privacy and security
@@ -105,38 +105,38 @@ Configuration option changes
   defaults to being off, so that changes in policy and disconnect/ban behavior
   will not cause a node that is whitelisting another to be dropped by peers.
   Users can still explicitly enable this behavior with the command line option
-  (and may want to consider [contacting](https://bitcoincore.org/en/contact/)
-  the Bitcoin Core project to let us know about their
+  (and may want to consider [contacting](https://gladcoincore.org/en/contact/)
+  the gladcoin Core project to let us know about their
   use-case, as this feature could be deprecated in the future).
 
 Documentation
 -------------
 
 - A new short
-  [document](https://github.com/bitcoin/bitcoin/blob/master/doc/JSON-RPC-interface.md)
+  [document](https://github.com/gladcoin/gladcoin/blob/master/doc/JSON-RPC-interface.md)
   about the JSON-RPC interface describes cases where the results of an
   RPC might contain inconsistencies between data sourced from different
   subsystems, such as wallet state and mempool state.  A note is added
-  to the [REST interface documentation](https://github.com/bitcoin/bitcoin/blob/master/doc/REST-interface.md)
+  to the [REST interface documentation](https://github.com/gladcoin/gladcoin/blob/master/doc/REST-interface.md)
   indicating that the same rules apply.
 
 - Further information is added to the [JSON-RPC
-  documentation](https://github.com/bitcoin/bitcoin/blob/master/doc/JSON-RPC-interface.md)
+  documentation](https://github.com/gladcoin/gladcoin/blob/master/doc/JSON-RPC-interface.md)
   about how to secure this interface.
 
-- A new [document](https://github.com/bitcoin/bitcoin/blob/master/doc/bitcoin-conf.md)
-  about the `bitcoin.conf` file describes how to use it to configure
-  Bitcoin Core.
+- A new [document](https://github.com/gladcoin/gladcoin/blob/master/doc/gladcoin-conf.md)
+  about the `gladcoin.conf` file describes how to use it to configure
+  gladcoin Core.
 
-- A new document introduces Bitcoin Core's BIP174
-  [Partially-Signed Bitcoin Transactions (PSBT)](https://github.com/bitcoin/bitcoin/blob/master/doc/psbt.md)
+- A new document introduces gladcoin Core's BIP174
+  [Partially-Signed gladcoin Transactions (PSBT)](https://github.com/gladcoin/gladcoin/blob/master/doc/psbt.md)
   interface, which is used to allow multiple programs to collaboratively
   work to create, sign, and broadcast new transactions.  This is useful
   for offline (cold storage) wallets, multisig wallets, coinjoin
   implementations, and many other cases where two or more programs need
   to interact to generate a complete transaction.
 
-- The [output script descriptor](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md)
+- The [output script descriptor](https://github.com/gladcoin/gladcoin/blob/master/doc/descriptors.md)
   documentation has been updated with information about new features in
   this still-developing language for describing the output scripts that
   a wallet or other program wants to receive notifications for, such as
@@ -148,9 +148,9 @@ Build system changes
 --------------------
 
 - A new `--disable-bip70` option may be passed to `./configure` to
-  prevent Bitcoin-Qt from being built with support for the BIP70 payment
+  prevent gladcoin-Qt from being built with support for the BIP70 payment
   protocol or from linking libssl.  As the payment protocol has exposed
-  Bitcoin Core to libssl vulnerabilities in the past, builders who don't
+  gladcoin Core to libssl vulnerabilities in the past, builders who don't
   need BIP70 support are encouraged to use this option to reduce their
   exposure to future vulnerabilities.
 
@@ -162,7 +162,7 @@ Deprecated or removed RPCs
 
 - The 'account' API is removed after being deprecated in v0.17.  The
   'label' API was introduced in v0.17 as a replacement for accounts.
-  See the [release notes from v0.17](https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.17.0.md#label-and-account-apis-for-wallet)
+  See the [release notes from v0.17](https://github.com/gladcoin/gladcoin/blob/master/doc/release-notes/release-notes-0.17.0.md#label-and-account-apis-for-wallet)
   for a full description of the changes from the 'account' API to the
   'label' API.
 
@@ -178,7 +178,7 @@ Deprecated or removed RPCs
   does not require or use the wallet component. Calling
   `generatetoaddress` with an address returned by the `getnewaddress`
   RPC gives the same functionality as the old `generate` RPC.  To
-  continue using `generate` in this version, restart bitcoind with the
+  continue using `generate` in this version, restart gladcoind with the
   `-deprecatedrpc=generate` configuration option.
 
 New RPCs
@@ -232,7 +232,7 @@ in the Low-level Changes section below.
   ignored or are inconsistent, if there are any.
 
 - The `getaddressinfo` RPC now returns an additional `solvable` boolean
-  field when Bitcoin Core knows enough about the address's scriptPubKey,
+  field when gladcoin Core knows enough about the address's scriptPubKey,
   optional redeemScript, and optional witnessScript in order for the
   wallet to be able to generate an unsigned input spending funds sent to
   that address.
@@ -246,7 +246,7 @@ in the Low-level Changes section below.
 - The `importprivkey` RPC will preserve previously-set labels for
   addresses or public keys corresponding to the private key being
   imported.  For example, if you imported a watch-only address with the
-  label "cold wallet" in earlier releases of Bitcoin Core, subsequently
+  label "cold wallet" in earlier releases of gladcoin Core, subsequently
   importing the private key would default to resetting the address's
   label to the default empty-string label ("").  In this release, the
   previous label of "cold wallet" will be retained.  If you optionally
@@ -271,7 +271,7 @@ in the Low-level Changes section below.
   "desc" parameter can be provided instead of the "scriptPubKey" in a request, as
   well as an optional range for ranged descriptors to specify the start and end
   of the range to import. More information about descriptors can be found
-  [here](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md).
+  [here](https://github.com/gladcoin/gladcoin/blob/master/doc/descriptors.md).
 
 - The `listunspent` RPC has been modified so that it also returns `witnessScript`,
   the witness script in the case of a P2WSH or P2SH-P2WSH output.
@@ -316,7 +316,7 @@ Graphical User Interface (GUI)
 Tools
 -----
 
-- A new `bitcoin-wallet` tool is now distributed alongside Bitcoin
+- A new `gladcoin-wallet` tool is now distributed alongside gladcoin
   Core's other executables.  Without needing to use any RPCs, this tool
   can currently create a new wallet file or display some basic
   information about an existing wallet, such as whether the wallet is
@@ -328,7 +328,7 @@ Dependencies
 
 - The minimum required version of QT (when building the GUI) has been increased
   from 5.2 to 5.5.1 (the [depends
-  system](https://github.com/bitcoin/bitcoin/blob/master/depends/README.md)
+  system](https://github.com/gladcoin/gladcoin/blob/master/depends/README.md)
   provides 5.9.7)
 
 Low-level changes
@@ -377,7 +377,7 @@ Network
   a misbehaving node will be disconnected to make room for nodes without
   a history of problems (unless the misbehaving node helps your node in
   some other way, such as by connecting to a part of the Internet from
-  which you don't have many other peers).  Previously, Bitcoin Core
+  which you don't have many other peers).  Previously, gladcoin Core
   banned the IP addresses of misbehaving peers for a period of time
   (default of 1 day); this was easily circumvented by attackers with
   multiple IP addresses.  If you manually ban a peer, such as by using
@@ -395,16 +395,16 @@ Security
 --------
 
 - This release changes the Random Number Generator (RNG) used from
-  OpenSSL to Bitcoin Core's own implementation, although entropy
-  gathered by Bitcoin Core is fed out to OpenSSL and then read back in
-  when the program needs strong randomness.  This moves Bitcoin Core a
+  OpenSSL to gladcoin Core's own implementation, although entropy
+  gathered by gladcoin Core is fed out to OpenSSL and then read back in
+  when the program needs strong randomness.  This moves gladcoin Core a
   little closer to no longer needing to depend on OpenSSL, a dependency
   that has caused security issues in the past.
 
 Changes for particular platforms
 --------------------------------
 
-- On macOS, Bitcoin Core now opts out of application CPU throttling
+- On macOS, gladcoin Core now opts out of application CPU throttling
   ("app nap") during initial blockchain download, when catching up from
   over 100 blocks behind the current chain tip, or when reindexing chain
   data.  This helps prevent these operations from taking an excessively
@@ -417,4 +417,4 @@ Credits
 Thanks to everyone who directly contributed to this release:
 
 
-As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/bitcoin/).
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/gladcoin/).
