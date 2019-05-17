@@ -26,7 +26,7 @@ $GLADCOIND --version | sed -n '1!p' >> footer.h2m
 
 for cmd in $GLADCOIND $GLADCOINCLI $GLADCOINTX $WALLET_TOOL $GLADCOINQT; do
   cmdname="${cmd##*/}"
-  help2man -N --version-string=${BTCVER[0]} --include=footer.h2m -o ${MANDIR}/${cmdname}.1 ${cmd}
+  help2man -N --version-string=${GLCVER[0]} --include=footer.h2m -o ${MANDIR}/${cmdname}.1 ${cmd}
   sed -i "s/\\\-${BTCVER[1]}//g" ${MANDIR}/${cmdname}.1
 done
 

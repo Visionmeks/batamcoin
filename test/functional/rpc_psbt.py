@@ -64,7 +64,7 @@ class PSBTTest(BitcoinTestFramework):
         connect_nodes_bi(self.nodes, 0, 2)
 
     def run_test(self):
-        # Create and fund a raw tx for sending 10 BTC
+        # Create and fund a raw tx for sending 10 GLC
         psbtx1 = self.nodes[0].walletcreatefundedpsbt([], {self.nodes[2].getnewaddress():10})['psbt']
 
         # Node 1 should not be able to add anything to it but still return the psbtx same as before
@@ -355,7 +355,7 @@ class PSBTTest(BitcoinTestFramework):
         assert analyzed['inputs'][0]['has_utxo'] and not analyzed['inputs'][0]['is_final'] and analyzed['inputs'][0]['next'] == 'signer' and analyzed['next'] == 'signer' and analyzed['inputs'][0]['missing']['signatures'][0] == addrinfo['embedded']['witness_program']
 
         # Check fee and size things
-        assert analyzed['fee'] == Decimal('0.001') and analyzed['estimated_vsize'] == 134 and analyzed['estimated_feerate'] == '0.00746268 BTC/kB'
+        assert analyzed['fee'] == Decimal('0.001') and analyzed['estimated_vsize'] == 134 and analyzed['estimated_feerate'] == '0.00746268 GLC/kB'
 
         # After signing and finalizing, needs extracting
         signed = self.nodes[1].walletprocesspsbt(updated)['psbt']

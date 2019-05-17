@@ -81,7 +81,7 @@ noinst_PROGRAMS =
 TESTS =
 BENCHMARKS =
 
-if BUILD_GLADCOIND
+if BUILD_BITCOIND
   bin_PROGRAMS += gladcoind
 endif
 
@@ -482,13 +482,13 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # gladcoind binary #
-gladcoind_SOURCES = gladcoind.cpp
+gladcoind_SOURCES = bitcoind.cpp
 gladcoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 gladcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 gladcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-gladcoind_SOURCES += gladcoind-res.rc
+gladcoind_SOURCES += bitcoind-res.rc
 endif
 
 gladcoind_LDADD = \
@@ -537,7 +537,7 @@ if TARGET_WINDOWS
 gladcoin_tx_SOURCES += bitcoin-tx-res.rc
 endif
 
-bitcoin_tx_LDADD = \
+gladcoin_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \

@@ -60,7 +60,7 @@ Represents the view to a single wallet.
 
 * UI elements like gladcoinAmountField, which inherit from QWidget.
 * `gladcoinstrings.cpp`: automatically generated
-* `gladcoinunits.(h/cpp)`: BTC / mBTC / etc handling
+* `gladcoinunits.(h/cpp)`: GLC / mGLC / etc handling
 * `callback.h`
 * `guiconstants.h`: UI colors, app name, etc
 * `guiutil.h`: several helper functions
