@@ -20,7 +20,8 @@ from segwit_addr import bech32_encode, decode, convertbits, CHARSET
 
 # key types
 PUBKEY_ADDRESS = 0
-SCRIPT_ADDRESS = 38
+SCRIPT_ADDRESS = 50
+SCRIPT_ADDRESS2 = 38
 PUBKEY_ADDRESS_TEST = 97
 SCRIPT_ADDRESS_TEST = 196
 PUBKEY_ADDRESS_REGTEST = 97
@@ -53,6 +54,7 @@ templates = [
   #                                  None = N/A
   ((PUBKEY_ADDRESS,),         20, (),   (False, 'main',    None,  None), pubkey_prefix, pubkey_suffix),
   ((SCRIPT_ADDRESS,),         20, (),   (False, 'main',    None,  None), script_prefix, script_suffix),
+  ((SCRIPT_ADDRESS2),         20, (),   (False, 'main',    None,  None), script_prefix, script_suffix),
   ((PUBKEY_ADDRESS_TEST,),    20, (),   (False, 'test',    None,  None), pubkey_prefix, pubkey_suffix),
   ((SCRIPT_ADDRESS_TEST,),    20, (),   (False, 'test',    None,  None), script_prefix, script_suffix),
   ((PUBKEY_ADDRESS_REGTEST,), 20, (),   (False, 'regtest', None,  None), pubkey_prefix, pubkey_suffix),
